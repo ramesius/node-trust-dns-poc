@@ -1,0 +1,13 @@
+{
+  "name": "node-rusty-dns",
+  "version": "1.0.0",
+  "main": "index.node",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "cargo-cp-artifact -nc index.node -- cargo build --release --message-format=json-render-diagnostics"
+  },
+  "devDependencies": {
+    "cargo-cp-artifact": "^0.1.8"
+  }
+}
