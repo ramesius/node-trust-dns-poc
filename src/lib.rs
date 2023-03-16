@@ -84,7 +84,8 @@ fn async_lookup(mut cx: FunctionContext) -> JsResult<JsPromise> {
     let (deferred, promise) = cx.promise();
 
     runtime.spawn(async move {
-        let lookup_result = async_resolver.lookup_ip(name).await;
+        let lookup_ip_future = async_resolver.lookup_ip(name);
+        let lookup_result = lookup_ip_future.await;
 
         if all {
             lookup_all(deferred, channel, lookup_result);
