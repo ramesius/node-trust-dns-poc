@@ -82,7 +82,7 @@ function testNative(n) {
 
 function testFFI(n) {
   performance.mark(`ffi-${n}-start`);
-  return ffiLookup(HOST, { all: ALL })
+  return ffiLookup(HOST, 4, ALL)
     .then((data) => {
       console.log(`${n} FFI: ${JSON.stringify(data)}`);
       performance.mark(`ffi-${n}-end`);

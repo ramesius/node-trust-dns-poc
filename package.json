@@ -1,13 +1,27 @@
 {
   "name": "node-rusty-dns",
   "version": "1.0.0",
-  "main": "index.node",
+  "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "cargo-cp-artifact -nc index.node -- cargo build --release --message-format=json-render-diagnostics"
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform"
   },
   "devDependencies": {
-    "cargo-cp-artifact": "^0.1.8"
+    "@napi-rs/cli": "^2.14.8"
+  },
+  "napi": {
+    "name": "node-rusty-dns",
+    "triples": {
+      "defaults": true,
+      "additional": [
+        "x86_64-unknown-linux-musl",
+        "aarch64-unknown-linux-gnu",
+        "armv7-unknown-linux-gnueabihf",
+        "aarch64-apple-darwin",
+        "aarch64-unknown-linux-musl"
+      ]
+    }
   }
 }
